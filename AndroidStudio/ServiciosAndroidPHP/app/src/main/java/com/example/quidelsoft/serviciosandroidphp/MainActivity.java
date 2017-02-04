@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         int r=objDatosJSON(resultado);
                         if (r>0) {
                             Intent i= new Intent(getApplicationContext(), registroNotas.class);
+                            Toast.makeText(getApplicationContext(),"OK -".concat(resultado), Toast.LENGTH_LONG).show();
                             startActivity(i);
                         } else {
                             Toast.makeText(getApplicationContext(),"Usuario Incorrecto", Toast.LENGTH_LONG).show();
