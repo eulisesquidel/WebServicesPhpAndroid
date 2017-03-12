@@ -23,6 +23,8 @@ import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
+import android.content.res.Resources;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -47,6 +49,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    public String armarURLServicioWeb(){
+        Resources  resources=getResources();
+        String url_root = resources.getString(R.string.url_root);
+        String url_service = resources.getString(R.string.url_service);
+
+        return url_root.concat("/").concat(url_service).concat("/");
+        // return url;
+    }
+
+
 
 
     public String enviarDatosGet(String usu, String pas) {
@@ -62,8 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // url = new URL("http://192.168.0.9/WebService/valida.php?usu=" + usu + "&pas=" + pas);
 
             // http://quidelsoft.com/ServiciosWeb/valida.php?usu=A1&pas=euli3755
-            url = new URL("http://quidelsoft.com/ServiciosWeb/valida.php?usu=" + usu + "&pas=" + pas);
+            //url = new URL("http://quidelsoft.com/ServiciosWeb/valida.php?usu=" + usu + "&pas=" + pas);
+            //url = new URL("http://localhost/ServiciosWeb/valida.php?usu=" + usu + "&pas=" + pas);
 
+            url = new URL(armarURLServicioWeb() + "valida.php?usu=" + usu + "&pas=" + pas);
 
             HttpURLConnection conection = (HttpURLConnection) url.openConnection();
             respuesta = conection.getResponseCode();

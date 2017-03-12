@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ServiciosAndroidPHP</string>
+    <string name="url_root">http://quidelsoft.com</string>
+    <string name="url_service">ServiciosWeb</string>
 </resources>
